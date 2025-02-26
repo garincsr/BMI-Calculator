@@ -1,7 +1,5 @@
 # BMI Calculator
 
-![BMI Calculator Preview](assets/bmi-calculator-preview.png)
-
 ## 📌 Overview
 
 BMI Calculator adalah aplikasi berbasis web yang memungkinkan pengguna menghitung Indeks Massa Tubuh (BMI) berdasarkan berat badan dan tinggi badan yang dimasukkan. Proyek ini dibuat menggunakan **React** dengan **Vite** untuk performa yang lebih cepat.
