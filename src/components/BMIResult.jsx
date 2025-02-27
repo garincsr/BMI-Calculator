@@ -51,13 +51,13 @@ function BMIResult() {
   };
 
   return (
-    <>
-      <div className="container d-flex flex-column justify-content-center my-3">
+    <div className="w-full shadow p-3 mx-auto">
+      <div className="container d-flex w-auto flex-column justify-content-center my-3">
         <h1 className="fw-bold text-center">BMI CALCULATOR</h1>
         <p className="fst-italic fw-light text-center">The BMI Calculator calculates the ideal body weight for individuals aged 18-65 years.</p>
       </div>
 
-      <div className="container h-auto">
+      <div className="container h-auto w-auto">
         <User name={name} setName={setName} setGender={setGender} />
         <Slider height={height} setHeight={setHeight} />
         <WeightandAge weight={weight} setWeight={setWeight} />
@@ -67,13 +67,13 @@ function BMIResult() {
 
         {/* Result BMI */}
         <div className="text-center shadow py-3 mt-3 rounded h-auto">
-          <h1 className="fw-bold text-decoration-underline">BMI Result Here</h1>
+          <h2 className="fw-bold text-decoration-underline">BMI Result Here</h2>
 
           {bmi && (
             <>
-              <h2>
+              <h3>
                 Your BMI: <span className="text-primary">{bmi}</span>
-              </h2>
+              </h3>
               <p>Category: {category}</p>
             </>
           )}
@@ -108,7 +108,7 @@ function BMIResult() {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }
 
