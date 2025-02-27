@@ -12,7 +12,8 @@ function User(props) {
           onClick={() => {
             setGender("Male");
           }}
-          className="border-0 bg-transparent rounded-circle p-0">
+          className="border-0 bg-transparent rounded-circle p-0"
+        >
           <img className="w-50 gender" src={Male} alt="maleimg" />
           <p>Male</p>
         </button>
@@ -20,7 +21,8 @@ function User(props) {
           onClick={() => {
             setGender("Female");
           }}
-          className="border-0 bg-transparent rounded-circle p-0">
+          className="border-0 bg-transparent rounded-circle p-0"
+        >
           <img className="w-50 gender" src={Female} alt="femaleimg" />
           <p>Female</p>
         </button>
@@ -29,7 +31,15 @@ function User(props) {
         <span className="input-group-text" id="basic-addon1">
           <i className="bi bi-person"></i>
         </span>
-        <input type="text" className="form-control p-2" placeholder="Your Name" aria-label="yourname" aria-describedby="basic-addon1" value={name} onChange={(e) => setName(e.target.value)} />
+        <input
+          type="text"
+          className="form-control p-2"
+          placeholder="Your Name"
+          aria-label="yourname"
+          aria-describedby="basic-addon1"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
       </div>
     </div>
   );

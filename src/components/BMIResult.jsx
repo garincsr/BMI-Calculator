@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Slider from "./Slider";
 import WeightandAge from "./WeightandAge";
 import User from "./User";
+import BMIHistory from "./BMIHistory";
+import WithLoading from "./WithLoading";
 
 function BMIResult() {
   const [bmi, setBmi] = useState(null);
@@ -12,10 +14,14 @@ function BMIResult() {
   const [gender, setGender] = useState("");
   const [history, setHistory] = useState([]);
 
-  useEffect(() => {
-    const storedHistory = JSON.parse(localStorage.getItem("bmiHistory")) || [];
-    setHistory(storedHistory);
-  }, []);
+  const storedHistory = JSON.parse(localStorage.getItem("bmiHistory")) || [];
+
+  // useEffect(() => {
+  //   const storedHistory = JSON.parse(localStorage.getItem("bmiHistory")) || [];
+  //   setHistory(storedHistory);
+  // }, []);
+
+  const BMIHistoryWithLoading = WithLoading(BMIHistory, storedHistory);
 
   const calculateBMI = () => {
     if (!name.trim() || !gender.trim()) {
@@ -25,7 +31,6 @@ function BMIResult() {
 
     const heightInMeters = height / 100;
     const bmiValue = (weight / (heightInMeters * heightInMeters)).toFixed(2);
-    console.log("ini adalah bmi value: ", bmiValue);
 
     let bmiCategory = "";
     if (bmiValue < 18.5) {
@@ -41,9 +46,14 @@ function BMIResult() {
     setBmi(bmiValue);
     setCategory(bmiCategory);
 
-    // Simpan ke history dan localStorage
-    const newEntry = { name, gender, height, weight, bmi: bmiValue, category: bmiCategory };
-    console.log("ini adalah new entry", newEntry);
+    const newEntry = {
+      name,
+      gender,
+      height,
+      weight,
+      bmi: bmiValue,
+      category: bmiCategory,
+    };
 
     const updatedHistory = [newEntry, ...history.slice(0, 4)];
     setHistory(updatedHistory);
@@ -54,14 +64,20 @@ function BMIResult() {
     <div className="w-full shadow p-3 mx-auto">
       <div className="container d-flex w-auto flex-column justify-content-center my-3">
         <h1 className="fw-bold text-center">BMI CALCULATOR</h1>
-        <p className="fst-italic fw-light text-center">The BMI Calculator calculates the ideal body weight for individuals aged 18-65 years.</p>
+        <p className="fst-italic fw-light text-center">
+          The BMI Calculator calculates the ideal body weight for individuals
+          aged 18-65 years.
+        </p>
       </div>
 
       <div className="container h-auto w-auto">
         <User name={name} setName={setName} setGender={setGender} />
         <Slider height={height} setHeight={setHeight} />
         <WeightandAge weight={weight} setWeight={setWeight} />
-        <button className="fs-5 mt-3 btn btn-danger rounded-4 w-100 py-3 mt-2" onClick={calculateBMI}>
+        <button
+          className="fs-5 mt-3 btn btn-danger rounded-4 w-100 py-3 mt-2"
+          onClick={calculateBMI}
+        >
           Calculate
         </button>
 
@@ -80,33 +96,7 @@ function BMIResult() {
         </div>
 
         {/* List History */}
-        {history.length > 0 && (
-          <div className="mt-4 mb-5 text-center">
-            <h3 className="fw-bold p-3 mb-2 bg-success text-light rounded-pill">-- Users History --</h3>
-            <ul className="list-group text-start rounded">
-              {history.map((val, index) => (
-                <li key={index} className="list-group-item py-3 px-4 rounded m-1 shadow">
-                  <h4 className="fw-bold">
-                    {val.name} ({val.gender})
-                  </h4>{" "}
-                  {val.bmi} - {val.category}
-                </li>
-              ))}
-              <div className="d-flex justify-content-end mt-2">
-                <button
-                  onClick={() => {
-                    if (confirm("You sure want to delete all BMI history ?")) {
-                      localStorage.removeItem("bmiHistory");
-                      setHistory([]);
-                    }
-                  }}
-                  className="w-50 py-3 mt-2 bg-danger text-light rounded-4 border-1 border-light shadow-sm">
-                  <i className="bi bi-x-square"></i> Delete History
-                </button>
-              </div>
-            </ul>
-          </div>
-        )}
+        <BMIHistoryWithLoading />
       </div>
     </div>
   );
