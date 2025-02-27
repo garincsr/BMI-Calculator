@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Slider from "./Slider";
 import WeightandAge from "./WeightandAge";
 import User from "./User";
@@ -21,7 +21,9 @@ function BMIResult() {
   //   setHistory(storedHistory);
   // }, []);
 
-  const BMIHistoryWithLoading = WithLoading(BMIHistory, storedHistory);
+  const BMIHistoryWithLoading = useMemo(() => {
+    return WithLoading(BMIHistory, storedHistory);
+  }, [storedHistory]);
 
   const calculateBMI = () => {
     if (!name.trim() || !gender.trim()) {

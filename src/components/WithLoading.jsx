@@ -3,9 +3,10 @@ import React, { useEffect, useState } from "react";
 function WithLoading(WrappedComponent, storedHistory) {
   return function EnhancedComponent() {
     const [history, setHistory] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+      setLoading(true);
       setTimeout(() => {
         setHistory(storedHistory);
         setLoading(false);
