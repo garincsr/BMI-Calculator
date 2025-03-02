@@ -21,7 +21,7 @@ BMI Calculator adalah aplikasi berbasis web yang memungkinkan pengguna menghitun
 
 1. Clone repository ini:
    ```bash
-   git clone https://git.enigmacamp.com/enigma-camp/oflline-class-lovelace/lovelace-turing-19/garin-caesar-syanugiri/fe/challenge/react-bmi.git
+   git clone https://github.com/garincsr/BMI-Calculator.git
    ```
 2. Masuk ke direktori proyek:
    ```bash
@@ -52,10 +52,13 @@ Output akan disimpan di folder `dist/`, siap untuk deployment.
 
 ## 📸 Preview
 
-![BMI Calculator Preview](./src/assets/first.png)
-![BMI Calculator Preview](./src/assets/second.png)
+&#x20;
 
-## 📜 License
+## 💾 Deployment
+
+Aplikasi ini telah dideploy dan dapat diakses di: [**BMI Calculator - Live**](https://bmi-calculator-zeta-blond.vercel.app/)
+
+## 💜 License
 
 Proyek ini dirilis di bawah lisensi MIT. Silakan gunakan dan modifikasi sesuai kebutuhan.
 
