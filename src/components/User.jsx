@@ -3,7 +3,7 @@ import Male from "../assets/male.svg";
 import Female from "../assets/female.svg";
 
 function User(props) {
-  const { name, setName, setGender } = props;
+  const { name, setName, gender, setGender } = props;
 
   return (
     <div>
@@ -14,7 +14,13 @@ function User(props) {
           }}
           className="border-0 bg-transparent rounded-circle p-0"
         >
-          <img className="w-50 gender" src={Male} alt="maleimg" />
+          <img
+            className={`w-50 gender ${
+              gender === "Male" ? "active bg-success" : ""
+            }`}
+            src={Male}
+            alt="maleimg"
+          />
           <p>Male</p>
         </button>
         <button
@@ -23,7 +29,13 @@ function User(props) {
           }}
           className="border-0 bg-transparent rounded-circle p-0"
         >
-          <img className="w-50 gender" src={Female} alt="femaleimg" />
+          <img
+            className={`w-50 gender ${
+              gender === "Female" ? "active bg-success" : ""
+            }`}
+            src={Female}
+            alt="femaleimg"
+          />
           <p>Female</p>
         </button>
       </div>

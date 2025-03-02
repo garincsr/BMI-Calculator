@@ -14,6 +14,12 @@ body {
   font-family: var(--bs-body-font-family);
 }
 
+.bmi-container {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 img.gender {
   transform: transform 1.5s ease-in-out, box-shadow 0.3s ease;
 }
@@ -24,9 +30,18 @@ img.gender:hover {
 
 img.gender:active {
   transform: scale(0.9);
-  background-color: #0d6efd;
+  background-color: #198754;
   opacity: 70%;
   border-radius: 10rem;
+}
+
+img.gender.active {
+  transform: scale(1.1);
+  border-radius: 10rem;
+}
+
+p.bmi-msg {
+  font-size: 0.8rem;
 }
 
 .input-number {
@@ -36,4 +51,8 @@ img.gender:active {
   outline: none;
   background: transparent;
   appearance: textfield;
+}
+
+.delete-history {
+  font-size: 0.8rem;
 }

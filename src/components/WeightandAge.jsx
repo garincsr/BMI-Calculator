@@ -59,7 +59,7 @@ function WeightandAge(props) {
     lessMsg,
     moreMsg
   ) => {
-    if (e.key == "Enter") {
+    if (e.key === "Enter") {
       if (state === "" || state < lessValue) {
         setState(lessValue);
         alert(lessMsg);
@@ -79,7 +79,7 @@ function WeightandAge(props) {
           {
             <input
               type="number"
-              className="fw-bold fs-1 text-center border-0 rounded-pill form-control shadow-none no-spinner"
+              className="fw-bold fs-1 bg-transparent text-center border-0 rounded-pill form-control shadow-none no-spinner"
               min="20"
               max="200"
               value={weight}
@@ -140,7 +140,7 @@ function WeightandAge(props) {
           {
             <input
               type="number"
-              className="fw-bold fs-1 text-center border-0 rounded-pill form-control shadow-none"
+              className="fw-bold bg-transparent fs-1 text-center border-0 rounded-pill form-control shadow-none"
               min="18"
               max="65"
               value={age}
