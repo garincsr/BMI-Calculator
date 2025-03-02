@@ -52,7 +52,8 @@ Output akan disimpan di folder `dist/`, siap untuk deployment.
 
 ## 📸 Preview
 
-&#x20;
+![BMI Calculator Preview](./src/assets/first.png)
+![BMI Calculator Preview](./src/assets/second.png)
 
 ## 💾 Deployment
 
